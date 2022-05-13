@@ -42,4 +42,16 @@ select emp_no, avg(salary)
     having avg(salary) > 60000
     order by avg(salary) asc;
 
-
+-- 예제
+-- salaries 테이블에서 사번이 10060인 직원의 급여 평균과 총합을 출력하세요.
+-- 문법적으로는 오류
+-- 의미적으로는 맞다(where)
+select emp_no, avg(salary), sum(salary)
+	from salaries
+	where emp_no = '10060';
+    
+-- 문법적으로 옳다.
+select emp_no, avg(salary), sum(salary)
+	from salaries
+	group by emp_no
+    having emp_no = '10060';
