@@ -36,10 +36,15 @@ select count(dept_no) as "매니저 수"
 
 -- 문제7.
 -- 전체 부서를 출력하려고 합니다. 순서는 부서이름이 긴 순서대로 출력해 보세요.
-
+select dept_name as "부서"
+	from departments
+    order by dept_name asc;
 
 -- 문제8.
 -- 현재 급여가 120,000이상 받는 사원은 몇 명이나 있습니까?
+select count(salary)
+	from salaries
+    where salary > 120000;
 
 -- 문제9.
 -- 어떤 직책들이 있나요? 중복 없이 이름이 긴 순서대로 출력해 보세요.
