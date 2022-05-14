@@ -48,9 +48,20 @@ select count(salary)
 
 -- 문제9.
 -- 어떤 직책들이 있나요? 중복 없이 이름이 긴 순서대로 출력해 보세요.
+select distinct dept_name
+	from departments
+    order by length(dept_name) desc;
 
 -- 문제10
 -- 현재 Enginner 직책의 사원은 총 몇 명입니까?
+select b.title as '직책', count(b.title) as '사원 수' 
+	from employees a, titles b
+    where a.emp_no = b.emp_no
+	and b.title = 'engineer';	
 
 -- 문제11
 -- 사번이 13250(Zeydy)인 지원이 직책 변경 상황을 시간순으로 출력해보세요.
+select distinct a.emp_no, a.first_name, b.title, b.to_date
+	from employees a, titles b
+    where a.emp_no = '13250'
+    order by b.to_date desc;
