@@ -71,11 +71,21 @@ select a.title, avg(b.salary), count(*)
 -- 실습문제 4: 현재 부서별로 현재 직책이 Engineer인 직원들의 대해서만 평균 급여를 구하세요.
 select a.dept_no, b.title, avg(c.salary)
 	from dept_emp a, titles b, salaries c
-    where a.emp_no = b.emp_no
-    and b.emp_no = c.emp_no
-    and a.to_date = '9999-01-01'
-	and b.to_date = '9999-01-01'
-    and c.to_date = '9999-01-01'
-	and b.title = 'Engineer'
-    group by a.dept_no;
-    
+   where a.emp_no = b.emp_no
+     and b.emp_no = c.emp_no
+     and a.to_date = '9999-01-01'	-- a.to_date like '9999%'
+	 and b.to_date = '9999-01-01'
+     and c.to_date = '9999-01-01'
+	 and b.title = 'Engineer'
+group by a.dept_no; 
+   
+select d.dept_name, avg(salary)
+    from dept_emp a, salaries b, titles c, departments d
+   where a.emp_no = b.emp_no
+     and b.emp_no = c.emp_no
+     and d.dept_no = a.dept_no
+     and a.to_date = '9999-01-01'
+     and b.to_date = '9999-01-01'
+     and c.to_date = '9999-01-01'
+     and c.title = 'Engineer'
+group by a.dept_no;
