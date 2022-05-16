@@ -189,4 +189,3 @@ select d.dept_name, b.first_name, c.salary
    and a.to_date = '9999-01-01'
    and c.to_date = '9999-01-01'
    and c.salary = e.max_salary;
-   
