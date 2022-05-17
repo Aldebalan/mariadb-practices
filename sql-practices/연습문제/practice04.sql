@@ -40,7 +40,7 @@ select a.emp_no as '사번', a.first_name as '이름', c.salary as '연봉'
    and c.to_date = '9999-01-01'
    and c.salary > d.avg_salary
 group by a.first_name
-order by c.salary;
+order by c.salary desc;
 
 -- 문제4.
 -- 현재, 사원들의 사번, 이름, 매니저 이름, 부서 이름으로 출력해 보세요.
