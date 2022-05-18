@@ -8,6 +8,14 @@ public class EmployeeVo {
 	private String lastName;
 	private String gender;
 	private String hireDate;
+	private long Salary;
+	
+	public long getSalary() {
+		return Salary;
+	}
+	public void setSalary(long salary) {
+		Salary = salary;
+	}
 	public Long getNo() {
 		return no;
 	}
@@ -47,7 +55,7 @@ public class EmployeeVo {
 	@Override
 	public String toString() {
 		return "EmployeeVo [no=" + no + ", birthDate=" + birthDate + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", gender=" + gender + ", hireDate=" + hireDate + "]";
+				+ lastName + ", gender=" + gender + ", hireDate=" + hireDate + ", Salary=" + Salary + "]";
 	}
 	
 	
