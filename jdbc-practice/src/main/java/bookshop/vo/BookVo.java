@@ -1,23 +1,12 @@
 package bookshop.vo;
 
 public class BookVo {
+	private Long no;
 	private String title;
 	private String stateCode;
 	private Long authorNo;
-	private Long no;
 	private String authorName;
 	
-	@Override
-	public String toString() {
-		return "BookVo [title=" + title + ", stateCode=" + stateCode + ", authorNo=" + authorNo + ", no=" + no
-				+ ", authorName=" + authorName + "]";
-	}
-	public String getAuthorName() {
-		return authorName;
-	}
-	public void setAuthorName(String authorName) {
-		this.authorName = authorName;
-	}
 	public Long getNo() {
 		return no;
 	}
@@ -42,5 +31,16 @@ public class BookVo {
 	public void setAuthorNo(Long authorNo) {
 		this.authorNo = authorNo;
 	}
-
+	
+	public String getAuthorName() {
+		return authorName;
+	}
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+	@Override
+	public String toString() {
+		return "BookVo [no=" + no + ", title=" + title + ", stateCode=" + stateCode + ", authorNo=" + authorNo
+				+ ", authorName=" + authorName + "]";
+	}
 }

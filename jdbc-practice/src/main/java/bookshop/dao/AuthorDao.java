@@ -8,28 +8,30 @@ import java.sql.SQLException;
 import bookshop.vo.AuthorVo;
 
 public class AuthorDao {
-	
+
 	public boolean insert(AuthorVo vo) {
 		boolean result = false;
 		Connection connection = null;
 		PreparedStatement pstmt = null;
-
+		
 		try {
 			//1. JDBC Driver 로딩 (JDBC Class 로딩: class loader)
 			Class.forName("org.mariadb.jdbc.Driver");
-
+			
 			//2. 연결하기
 			String url = "jdbc:mysql://192.168.10.31:3306/webdb?charset=utf8";
 			connection = DriverManager.getConnection(url, "webdb", "webdb");
-
+			
 			//3. SQL 준비
-			String sql = "insert" +
-					     " into author values(null, ?)";
+			String sql =
+				" insert" +
+				"   into author" +
+				" values(null, ?)";
 			pstmt = connection.prepareStatement(sql);
-
+			
 			//4.Mapping(bind)
 			pstmt.setString(1, vo.getName());
-
+			
 			//4. SQL 실행
 			int count = pstmt.executeUpdate();
 			result = count == 1;
@@ -49,8 +51,6 @@ public class AuthorDao {
 				e.printStackTrace();
 			}
 		}
-
-		return result;
+		return result;		
 	}
-	
 }
